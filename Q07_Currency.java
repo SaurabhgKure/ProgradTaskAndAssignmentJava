@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Q7_Currency {
+public class Q07_Currency {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
         System.out.println("Enter the Currency : ");

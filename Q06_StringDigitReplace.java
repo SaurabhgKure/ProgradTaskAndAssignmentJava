@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Q6_StringDigitReplace {
+public class Q06_StringDigitReplace {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter The String : ");
