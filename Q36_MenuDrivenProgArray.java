@@ -35,7 +35,7 @@ public class Q36_MenuDrivenProgArray {
             }
             System.out.println();
             int pos=sc.nextInt();
-            if(pos-1>0&&pos-1< arr.length) {
+            if(pos-1>=0&&pos-1< arr.length) {
 
                 if (arr[pos - 1] == ele) {
                     for (int i = 0; i < newarr.length; i++) {
@@ -101,9 +101,10 @@ public class Q36_MenuDrivenProgArray {
                 int[] current = new int[size];
                 System.arraycopy(store, 0, current, 0, current.length);
 
-                System.out.println("xx-------xx-------xx-------xx-------xx-------xx-------xx-------xx");
-                System.out.println("Below are operations Which can be perform on the given array : ");
+                System.out.println("xx-------xx-------xx-------xx-------xx-------xx-------xx-------xx-------xx");
+                System.out.println("     Below are operations Which can be perform on the given array  ");
                 System.out.println("""
+                        xx-------xx-------xx-------xx-------xx-------xx-------xx-------xx-------xxx
                              1.Insert element in array.
                              2.Delete element from array.
                              3.Search element of array.
@@ -113,8 +114,9 @@ public class Q36_MenuDrivenProgArray {
                              7.Average of all elements.
                              8.Display original array elements.
                              9.Maximum and minimum element from array.
-                             9.Exit
-                        xx-------xx-------xx-------xx-------xx-------xx-------xx-------xx""");
+                             10.Sort array.
+                             11.Exit
+                        xx-------xx-------xx-------xx-------xx-------xx-------xx-------xx-------xx""");
 
                 System.out.println("Select your choice from above :");
                 choice = sc.nextInt();
@@ -259,8 +261,103 @@ public class Q36_MenuDrivenProgArray {
                             }
                             System.out.println();
                         }
-                        case 9->{
 
+                        case 9->{
+                            if(current.length==1){
+                                System.out.println("There is only one element in array : "+current[0]);
+                                System.out.println();
+                            }else
+                            if (current.length > 1) {
+                                int[] newarr = new int[current.length];
+                                System.arraycopy(current, 0, newarr, 0, current.length);
+                                for (int i = 0; i < newarr.length - 1; i++) {
+                                    for (int j = i; j < newarr.length; j++) {
+                                        if (newarr[i] > newarr[j]) {
+                                            int temp = newarr[i];
+                                            newarr[i] = newarr[j];
+                                            newarr[j] = temp;
+                                        }
+                                    }
+                                }
+                                System.out.println("Minimum element of array is : " + newarr[0]);
+                                System.out.println("Maximum element of array is : " + newarr[newarr.length - 1]);
+
+                                System.out.println();
+                            } else {
+                                System.out.println("Array is empty...!!!");
+                                System.out.println();
+                            }
+                            System.out.println("current array is : ");
+                            for (int j : current) {
+                                System.out.print(j + " ");
+                            }
+                            System.out.println();
+                        }
+                        case 10->{
+                            if(current.length==1){
+                                System.out.println("There is only one element in array :"+current[0]);
+                                System.out.println();
+                            }else if(current.length>1){
+                                int[] newarr = new int[current.length];
+                                System.arraycopy(current, 0, newarr, 0, current.length);
+                                System.out.println("   Which type of sorting you want \n     1.Ascending order   2. Descending order ");
+                                int type =sc.nextInt();
+                                if(type==1){
+                                    for (int i = 0; i < newarr.length - 1; i++) {
+                                        for (int j = i; j < newarr.length; j++) {
+                                            if (newarr[i] > newarr[j]) {
+                                                int temp = newarr[i];
+                                                newarr[i] = newarr[j];
+                                                newarr[j] = temp;
+                                            }
+                                        }
+                                    }
+                                    System.out.println("Ascending order of array is : ");
+                                    for (int j : newarr) {
+                                        System.out.print(j+" ");
+                                    }
+                                    System.out.println();
+                                    System.out.println("current array is : ");
+                                    for (int j : newarr) {
+                                        System.out.print(j + " ");
+                                    }
+                                    System.arraycopy(newarr, 0, store, 0, newarr.length);
+                                    System.out.println();
+                                }else if(type ==2){
+                                    for (int i = 0; i < newarr.length - 1; i++) {
+                                        for (int j = i; j < newarr.length; j++) {
+                                            if (newarr[i] < newarr[j]) {
+                                                int temp = newarr[i];
+                                                newarr[i] = newarr[j];
+                                                newarr[j] = temp;
+                                            }
+                                        }
+                                    }
+                                    System.out.println("Descending order of array is : ");
+                                    for (int j : newarr) {
+                                        System.out.print(j+" ");
+                                    }
+                                    System.out.println();
+                                    System.out.println("current array is : ");
+                                    for (int j : newarr) {
+                                        System.out.print(j + " ");
+                                    }
+                                    System.arraycopy(newarr, 0, store, 0, newarr.length);
+
+                                    System.out.println();
+                                }else{
+                                    System.out.println("Please select correct option...!!! ");
+                                    System.out.println();
+                                    System.out.println("current array is : ");
+                                    for (int j : current) {
+                                        System.out.print(j + " ");
+                                    }
+                                    System.out.println();
+
+                                }
+                            }else{
+                                System.out.println("Array is empty...!!!");
+                            }
                         }
                         case 11->{
                             System.out.println("Final array is : ");
@@ -270,13 +367,14 @@ public class Q36_MenuDrivenProgArray {
 
                             break kkk;
                         }
+
                         default -> {
                             System.out.println("Please select correct choice option from given...!!!");
                             choice=1;
                         }
                     }
 
-            } while (choice <9);
+            } while (choice <11);
         }else {
             System.out.println("Array size should be greater than 0...!!!");
         }
