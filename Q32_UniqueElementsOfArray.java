@@ -26,7 +26,7 @@ public class Q32_UniqueElementsOfArray {
             }
             System.out.println("Count of unique elements in array are : " + count);
         }else {
-            System.out.println("Size of array should be minimun 1....!!!");
+            System.out.println("Size of array should be minimum 1....!!!");
         }
     }
 }
